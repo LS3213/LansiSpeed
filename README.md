@@ -4,8 +4,8 @@ LansiSpeed 是一个基于 [LibreSpeed](https://github.com/librespeed/speedtest)
 
 本仓库保留了 LibreSpeed 的核心测速引擎与基础 PHP 后端，并在此前提下对前端界面、交互方式和功能范围做了定制，面向更轻量的自部署使用场景。
 
-![前台首页](frontend/images/1.jpg)
-![前台首页](frontend/images/1.jpg)
+![前台首页](frontend/images/1.png)
+![前台首页](frontend/images/2.png)
 
 ## 项目说明
 
