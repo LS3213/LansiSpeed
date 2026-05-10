@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta
+      name="description"
+      content="LansiSpeed 中文测速界面，支持 Download、Upload、Ping 与 Jitter 测试。"
+    />
+    <link rel="shortcut icon" href="frontend/images/lansispeed-icon-32.png?v=20260511-icon2" />
+    <script type="text/javascript" src="speedtest.js"></script>
+    <script type="text/javascript" src="frontend/javascript/index.js?v=20260511-copy2"></script>
+    <link rel="stylesheet" type="text/css" href="frontend/styling/index.css?v=20260511-copy2" />
+    <title>LansiSpeed 中文版测速台</title>
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="topbar">
+        <a class="brand" href="#" aria-label="LansiSpeed 首页">
+          <img class="brand-icon" src="frontend/images/lansispeed-icon-64.png?v=20260511-icon2" alt="LansiSpeed" />
+          <div class="brand-copy">
+            <span class="brand-label">网络测速工作台</span>
+            <strong>LansiSpeed</strong>
+          </div>
+        </a>
+
+        <div class="toolbar">
+          <button class="toolbar-button" id="unit-toggle" type="button">
+            单位：Mbps
+          </button>
+          <button class="toolbar-button ghost" id="open-history" type="button">
+            查看历史
+          </button>
+        </div>
+      </header>
+
+      <main class="dashboard">
+        <section class="hero-panel">
+          <div class="hero-copy">
+            <p class="eyebrow">Network Speed Test</p>
+            <h1>专业、清晰、易用的网络测速平台。</h1>
+            <p class="tagline">
+              面向日常部署与正式发布场景，提供稳定的单节点测速体验，
+              清晰展示下载、上传、延迟与抖动等关键网络指标。
+            </p>
+
+            <div class="hero-status">
+              <article class="status-card primary">
+                <span class="status-label">当前状态</span>
+                <strong id="status-text">初始化中</strong>
+                <p id="status-detail">正在准备测速环境...</p>
+              </article>
+              <article class="status-card">
+                <span class="status-label">连接摘要</span>
+                <strong id="connection-text">等待网络信息</strong>
+                <p id="server-summary">等待测速启动</p>
+              </article>
+            </div>
+
+            <div class="actions">
+              <button class="disabled" id="start-button" type="button"></button>
+            </div>
+
+            <p id="network-info" class="network-banner hidden"></p>
+          </div>
+
+          <aside class="hero-side">
+            <div class="history-panel compact" id="history-panel">
+              <div class="panel-heading">
+                <span>仅保存在本机</span>
+                <strong>最近测速</strong>
+              </div>
+              <div class="history-empty" id="history-empty">
+                当前设备还没有保存过测速记录。
+              </div>
+              <ul class="history-list" id="history-list"></ul>
+              <button
+                class="toolbar-button ghost hidden"
+                id="clear-history"
+                type="button"
+              >
+                清空历史
+              </button>
+            </div>
+          </aside>
+        </section>
+
+        <section class="metrics-strip" aria-label="实时指标">
+          <article class="metric-card download-card">
+            <span class="metric-label">Download</span>
+            <strong id="download-metric">00</strong>
+            <span class="metric-unit" id="download-unit">Mbps</span>
+          </article>
+          <article class="metric-card upload-card">
+            <span class="metric-label">Upload</span>
+            <strong id="upload-metric">00</strong>
+            <span class="metric-unit" id="upload-unit">Mbps</span>
+          </article>
+          <article class="metric-card ping-card">
+            <span class="metric-label">Ping</span>
+            <strong id="ping-metric">00</strong>
+            <span class="metric-unit">ms</span>
+          </article>
+          <article class="metric-card jitter-card">
+            <span class="metric-label">Jitter</span>
+            <strong id="jitter-metric">00</strong>
+            <span class="metric-unit">ms</span>
+          </article>
+        </section>
+
+        <section class="gauge-section">
+          <div class="section-heading">
+            <div>
+              <span>实时仪表</span>
+              <strong>测速刻度盘</strong>
+            </div>
+            <p class="section-note">测速过程中会实时刷新 Download / Upload / Ping / Jitter。</p>
+          </div>
+
+          <div class="gauge-layout">
+            <div class="ping hidden">
+              <span class="label">Ping</span>
+              <span class="value" id="ping">00</span>
+              <span class="suffix">ms</span>
+            </div>
+
+            <div class="gauge download" id="download-gauge">
+              <div class="progress"></div>
+              <div class="speed"></div>
+              <h1><span id="download-speed">00</span> <em>Mbps</em></h1>
+              <h2>Download</h2>
+            </div>
+
+            <div class="gauge upload" id="upload-gauge">
+              <div class="progress"></div>
+              <div class="speed"></div>
+              <h1><span id="upload-speed">00</span> <em>Mbps</em></h1>
+              <h2>Upload</h2>
+            </div>
+
+            <div class="jitter hidden">
+              <span class="label">Jitter</span>
+              <span class="value" id="jitter">00</span>
+              <span class="suffix">ms</span>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer>
+        <p class="source">
+          <a href="https://github.com/librespeed/speedtest">源代码</a>
+        </p>
+      </footer>
+    </div>
+  </body>
+</html>
